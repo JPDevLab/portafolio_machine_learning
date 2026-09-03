@@ -49,3 +49,14 @@ with col3:
     # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
     url = "REEMPLAZA_url_arbol.streamlit.app/"
     st.write(f"Árbol de Decisión: [Enlace]({url})")
+
+
+with col4:
+    st.subheader("Predictor en vivo: Ecuación Normal vs Gradiente Descendente")
+    # 👇 REEMPLAZA el nombre del archivo de imagen
+    image = Image.open("knn.png")
+    st.image(image, width=190)
+    st.write("En el siguiente enlace veremos cómo funciona.")
+    # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
+    url = "https://machine-learning-hqcjanjiambod6xmlgt3k5.streamlit.app/"
+    st.write(f"Predictor en vivo: Ecuación Normal vs Gradiente Descendente: [Enlace]({url})")
