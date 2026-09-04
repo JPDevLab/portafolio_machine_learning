@@ -16,7 +16,7 @@ url_ml = "https://sites.google.com/view/aplicacionesdeia/inicio"
 st.subheader("En el siguiente enlace puedes encontrar páginas y ejercicios prácticos")
 st.write(f"Enlace para páginas y ejercicios: [Enlace]({url_ml})")
 
-col1, col2, col3 col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.subheader("Clasificación con KNN")
@@ -50,7 +50,6 @@ with col3:
     url = "https://arboldecision-aszznjqnuycnfum3smcufi.streamlit.app/"
     st.write(f"Árbol de Decisión: [Enlace]({url})")
 
-with col4:
     st.subheader("Regresión Lineal como Predictor")
     # 👇 REEMPLAZA el nombre del archivo de imagen
     image = Image.open("knn.png")
