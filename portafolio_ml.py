@@ -43,7 +43,7 @@ with col2:
 with col3:
     st.subheader("Árboles de Decisión")
     # 👇 REEMPLAZA el nombre del archivo de imagen
-    image = Image.open("knn.png")
+    image = Image.open("ArbolesDecision.png")
     st.image(image, width=190)
     st.write("En el siguiente enlace veremos cómo funciona un árbol de decisión.")
     # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
