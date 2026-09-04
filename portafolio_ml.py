@@ -37,7 +37,7 @@ with col2:
     st.image(image, width=190)
     st.write("En el siguiente enlace veremos cómo agrupar datos usando K-Means.")
     # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
-    url = "REEMPLAZA_url_kmeans.streamlit.app/"
+    url = "https://app-evaluador-k94fosxofdexcissfcwctj.streamlit.app/"
     st.write(f"K-Means: [Enlace]({url})")
 
 with col3:
