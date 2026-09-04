@@ -68,6 +68,15 @@ with col3:
     url = "https://arboldecision-aszznjqnuycnfum3smcufi.streamlit.app/"
     st.write(f"Árbol de Decisión: [Enlace]({url})")
 
+    st.subheader("Machine Learning: Consumo Total vs Hora del Día")
+    # 👇 REEMPLAZA el nombre del archivo de imagen
+    image = Image.open("knn.png")
+    st.image(image, width=190)
+    st.write("En el siguiente enlace veremos cómo funciona un árbol de decisión.")
+    # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
+    url = "https://arboldecision-aszznjqnuycnfum3smcufi.streamlit.app/"
+    st.write(f"Árbol de Decisión: [Enlace]({url})")
+
 
 
     
