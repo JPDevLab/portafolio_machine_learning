@@ -59,4 +59,13 @@ with col3:
     url = "https://machine-learning-hqcjanjiambod6xmlgt3k5.streamlit.app/"
     st.write(f"Árbol de Decisión: [Enlace]({url})")
 
+    st.subheader("Predictor de compra de seguro")
+    # 👇 REEMPLAZA el nombre del archivo de imagen
+    image = Image.open("knn.png")
+    st.image(image, width=190)
+    st.write("En el siguiente enlace veremos cómo funciona.")
+    # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
+    url = "https://regresionlineal-fhgtaykfsuwxafazbzkvzf.streamlit.app/"
+    st.write(f"Árbol de Decisión: [Enlace]({url})")
+
 
