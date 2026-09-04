@@ -16,7 +16,7 @@ url_ml = "https://sites.google.com/view/aplicacionesdeia/inicio"
 st.subheader("En el siguiente enlace puedes encontrar páginas y ejercicios prácticos")
 st.write(f"Enlace para páginas y ejercicios: [Enlace]({url_ml})")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 col4 = st.columns(4)
 
 with col1:
     st.subheader("Clasificación con KNN")
@@ -48,6 +48,16 @@ with col3:
     st.write("En el siguiente enlace veremos cómo funciona un árbol de decisión.")
     # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
     url = "https://arboldecision-aszznjqnuycnfum3smcufi.streamlit.app/"
+    st.write(f"Árbol de Decisión: [Enlace]({url})")
+
+with col4:
+    st.subheader("Regresión Lineal como Predictor")
+    # 👇 REEMPLAZA el nombre del archivo de imagen
+    image = Image.open("knn.png")
+    st.image(image, width=190)
+    st.write("En el siguiente enlace veremos cómo funciona.")
+    # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
+    url = "https://machine-learning-hqcjanjiambod6xmlgt3k5.streamlit.app/"
     st.write(f"Árbol de Decisión: [Enlace]({url})")
 
 
