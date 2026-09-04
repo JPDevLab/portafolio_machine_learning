@@ -47,7 +47,7 @@ with col3:
     st.image(image, width=190)
     st.write("En el siguiente enlace veremos cómo funciona un árbol de decisión.")
     # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
-    url = "REEMPLAZA_url_arbol.streamlit.app/"
+    url = "https://arboldecision-aszznjqnuycnfum3smcufi.streamlit.app/"
     st.write(f"Árbol de Decisión: [Enlace]({url})")
 
 
