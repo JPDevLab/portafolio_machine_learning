@@ -25,7 +25,7 @@ with col1:
     st.image(image, width=190)
     st.write("En el siguiente enlace veremos cómo clasificar datos usando el algoritmo KNN.")
     # 👇 REEMPLAZA la url por la de tu app en Streamlit Cloud
-    url = "REEMPLAZA_url_knn.streamlit.app/"
+    url = "https://appconsumohora-5lqsstytnsoxpa34guwtfh.streamlit.app/"
     st.write(f"KNN: [Enlace]({url})")
 
     
