@@ -1,176 +1,126 @@
 
 import streamlit as st
 
-# --------------------------------------------------
+# ==================================================
 # CONFIGURACIÓN
-# --------------------------------------------------
+# ==================================================
 
 st.set_page_config(
-    page_title="Portafolio Académico | Machine Learning",
+    page_title="Portafolio Académico",
     page_icon="📚",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
-# --------------------------------------------------
+# ==================================================
 # ESTILOS
-# --------------------------------------------------
+# ==================================================
 
 st.markdown("""
 <style>
     .stApp {
-        background-color: #f5f6f8;
-        color: #252d38;
-    }
-
-    [data-testid="stHeader"] {
-        background-color: #f5f6f8;
-    }
-
-    [data-testid="stSidebar"] {
-        background-color: #ffffff;
+        background-color: #F4F6F8;
     }
 
     .block-container {
+        max-width: 1250px;
         padding-top: 2.5rem;
         padding-bottom: 3rem;
-        max-width: 1250px;
     }
 
-    .header-box {
-        background: #ffffff;
-        border: 1px solid #e1e5eb;
-        border-radius: 12px;
-        padding: 34px;
-        margin-bottom: 28px;
+    h1, h2, h3 {
+        color: #263746;
+    }
+
+    p, label {
+        color: #596875;
+    }
+
+    [data-testid="stHeader"] {
+        background: transparent;
+    }
+
+    [data-testid="stVerticalBlockBorderWrapper"] {
+        background-color: #FFFFFF;
+        border-color: #E1E6EB !important;
+        border-radius: 12px !important;
+    }
+
+    [data-testid="stTextInput"] input,
+    [data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+        background-color: #FFFFFF;
+        border-color: #D8E0E6;
+        border-radius: 8px;
+        color: #263746;
+    }
+
+    [data-testid="stTextInput"] input:focus {
+        border-color: #52788C;
+        box-shadow: 0 0 0 1px #52788C;
+    }
+
+    [data-testid="stLinkButton"] a {
+        background-color: #456B7C;
+        color: #FFFFFF !important;
+        border: 1px solid #456B7C;
+        border-radius: 7px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.2s;
+    }
+
+    [data-testid="stLinkButton"] a:hover {
+        background-color: #345363;
+        border-color: #345363;
+        color: #FFFFFF !important;
     }
 
     .header-label {
-        color: #52758a;
+        color: #52788C;
         font-size: 12px;
         font-weight: 700;
         letter-spacing: 1.5px;
         text-transform: uppercase;
     }
 
-    .header-box h1 {
-        color: #263746;
-        font-size: 32px;
-        margin: 12px 0;
-        font-weight: 650;
-    }
-
-    .header-box p {
-        color: #687582;
+    .header-description {
+        color: #687784;
         font-size: 15px;
         line-height: 1.7;
         max-width: 800px;
-        margin-bottom: 0;
     }
 
-    .section-heading {
-        color: #263746;
-        font-size: 23px;
-        font-weight: 650;
-        margin-bottom: 5px;
-    }
-
-    .section-subtitle {
-        color: #7a8793;
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    .project-card {
-        background: #ffffff;
-        border: 1px solid #e1e5eb;
-        border-radius: 11px;
-        padding: 21px;
-        min-height: 220px;
-        margin-bottom: 16px;
-        transition: border-color 0.2s ease;
-    }
-
-    .project-card:hover {
-        border-color: #8ba9b8;
-    }
-
-    .category-tag {
-        display: inline-block;
-        background: #edf2f5;
-        color: #52758a;
-        padding: 5px 9px;
-        border-radius: 5px;
-        font-size: 10px;
+    .category-label {
+        color: #52788C;
+        font-size: 11px;
         font-weight: 700;
+        letter-spacing: 0.8px;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
     }
 
-    .project-card h3 {
-        color: #293b49;
-        font-size: 17px;
-        font-weight: 650;
-        margin-top: 16px;
-        margin-bottom: 10px;
-    }
-
-    .project-card p {
-        color: #727e89;
+    .project-description {
+        color: #687784;
         font-size: 13px;
         line-height: 1.6;
-        min-height: 62px;
+        min-height: 65px;
     }
 
-    .project-link {
-        color: #416c83 !important;
-        font-size: 13px;
-        font-weight: 650;
-        text-decoration: none !important;
+    hr {
+        border-color: #E1E6EB;
     }
 
-    .project-link:hover {
-        color: #263746 !important;
+    @media (max-width: 640px) {
+        .block-container {
+            padding-top: 1rem;
+        }
     }
-
-    .stats-box {
-        background: #ffffff;
-        border: 1px solid #e1e5eb;
-        border-radius: 10px;
-        padding: 18px;
-        text-align: center;
-    }
-
-    .stats-number {
-        font-size: 25px;
-        color: #416c83;
-        font-weight: 700;
-    }
-
-    .stats-label {
-        font-size: 12px;
-        color: #7a8793;
-    }
-
-    .footer {
-        border-top: 1px solid #e1e5eb;
-        margin-top: 35px;
-        padding-top: 20px;
-        text-align: center;
-        color: #89939c;
-        font-size: 12px;
-    }
-
-    #MainMenu, footer {
-        visibility: hidden;
-    }
-
 </style>
 """, unsafe_allow_html=True)
 
 
-# --------------------------------------------------
-# PROYECTOS
-# --------------------------------------------------
+# ==================================================
+# BASE DE PROYECTOS
+# ==================================================
 
 projects = [
 
@@ -179,37 +129,37 @@ projects = [
     {
         "name": "Clasificación con KNN",
         "category": "Machine Learning",
-        "description": "Aplicación del algoritmo K-Nearest Neighbors para clasificar datos a partir de sus características.",
+        "description": "Aplicación del algoritmo K-Nearest Neighbors para la clasificación de datos.",
         "url": "https://appconsumohora-5lqsstytnsoxpa34guwtfh.streamlit.app/"
     },
     {
         "name": "Regresión Lineal como Predictor",
         "category": "Machine Learning",
-        "description": "Aplicación de regresión lineal para estudiar relaciones entre variables y realizar predicciones.",
+        "description": "Implementación de regresión lineal para analizar relaciones entre variables y realizar predicciones.",
         "url": "https://machine-learning-hqcjanjiambod6xmlgt3k5.streamlit.app/"
     },
     {
         "name": "Agrupamiento con K-Means",
         "category": "Machine Learning",
-        "description": "Implementación del algoritmo K-Means para el agrupamiento de datos.",
+        "description": "Aplicación del algoritmo K-Means para agrupar datos según sus características.",
         "url": "https://app-evaluador-k94fosxofdexcissfcwctj.streamlit.app/"
     },
     {
-        "name": "Predicción de Compra de Seguros",
+        "name": "Predictor de Compra de Seguros",
         "category": "Machine Learning",
-        "description": "Proyecto de predicción relacionado con la compra de seguros.",
+        "description": "Aplicación de un modelo predictivo relacionado con la compra de seguros.",
         "url": "https://regresionlineal-fhgtaykfsuwxafazbzkvzf.streamlit.app/"
     },
     {
         "name": "Árboles de Decisión",
         "category": "Machine Learning",
-        "description": "Aplicación de modelos basados en árboles de decisión.",
+        "description": "Implementación de modelos de clasificación mediante árboles de decisión.",
         "url": "https://arboldecision-aszznjqnuycnfum3smcufi.streamlit.app/"
     },
     {
         "name": "Aplicación de Consumo",
         "category": "Machine Learning",
-        "description": "Proyecto relacionado con el análisis de información de consumo.",
+        "description": "Proyecto relacionado con el análisis de datos de consumo.",
         "url": "https://appappconsumo-djqrsp7zpehhavfucerufm.streamlit.app/"
     },
     {
@@ -221,7 +171,7 @@ projects = [
     {
         "name": "Análisis de Consumo",
         "category": "Machine Learning",
-        "description": "Aplicación relacionada con el análisis de datos de consumo.",
+        "description": "Aplicación relacionada con el procesamiento y análisis de datos de consumo.",
         "url": "https://appconsumores-fwxqqhuqsngudmpbv9buia.streamlit.app/"
     },
 
@@ -230,25 +180,25 @@ projects = [
     {
         "name": "YOLOv5",
         "category": "Visión Artificial",
-        "description": "Proyecto que utiliza YOLOv5, un modelo de detección de objetos mediante visión artificial.",
+        "description": "Proyecto de detección de objetos utilizando el modelo YOLOv5.",
         "url": "https://yolov5-main-nnxkuybgkqwqkehafcshgn.streamlit.app/"
     },
     {
         "name": "VisionTwo",
         "category": "Visión Artificial",
-        "description": "Aplicación de visión artificial. Consulta la plataforma para conocer sus funcionalidades.",
+        "description": "Aplicación académica de visión artificial.",
         "url": "https://visiontwo-6lrvopkubgzbbbck9g8aag.streamlit.app/"
     },
     {
         "name": "VisionComb",
         "category": "Visión Artificial",
-        "description": "Proyecto de visión artificial con una sección de detección YOLO.",
+        "description": "Proyecto de visión artificial con una sección dedicada a YOLO.",
         "url": "https://visioncomb-main-7tn6tu6s4j2bk7fzekqvyp.streamlit.app/YOLO"
     },
     {
         "name": "Aplicación de Reconocimiento",
         "category": "Visión Artificial",
-        "description": "Proyecto de reconocimiento mediante una aplicación interactiva.",
+        "description": "Aplicación académica relacionada con reconocimiento y procesamiento visual.",
         "url": "https://app-rec-gxfnqppuvkccstw8youa5z.streamlit.app/"
     },
 
@@ -263,19 +213,19 @@ projects = [
     {
         "name": "ISTM NLP",
         "category": "Inteligencia Artificial",
-        "description": "Proyecto relacionado con el procesamiento del lenguaje natural (NLP).",
+        "description": "Proyecto relacionado con el procesamiento del lenguaje natural.",
         "url": "https://istmnlp-main-gp2vhfd2bkcklsbqwlaxzj.streamlit.app/"
     },
     {
         "name": "ChatPDF",
         "category": "Inteligencia Artificial",
-        "description": "Aplicación para trabajar con documentos PDF mediante una interfaz conversacional.",
+        "description": "Aplicación para interactuar con documentos PDF.",
         "url": "https://chatpdf-3uxzbbzwwh9k4ay4njlq3v.streamlit.app/"
     },
     {
         "name": "Arquitectura de Redes Neuronales",
         "category": "Inteligencia Artificial",
-        "description": "Proyecto relacionado con la arquitectura y estructura de redes neuronales.",
+        "description": "Proyecto relacionado con la estructura y arquitectura de redes neuronales.",
         "url": "https://arquitecturaredesneuronales-r27vcyn7gsruj3vx88gpkz.streamlit.app/"
     },
 
@@ -290,58 +240,64 @@ projects = [
     {
         "name": "Aplicación Multipágina",
         "category": "Desarrollo de Software",
-        "description": "Implementación de una aplicación web con navegación entre diferentes páginas.",
+        "description": "Aplicación web con navegación entre diferentes páginas.",
         "url": "https://multipagina-fyavpc5df95wwhkw4bmhsr.streamlit.app/"
     },
 
-    # OTROS PROYECTOS
+    # OTROS
 
     {
         "name": "IMM1",
         "category": "Otros proyectos",
-        "description": "Proyecto académico publicado mediante Streamlit.",
+        "description": "Aplicación académica publicada mediante Streamlit.",
         "url": "https://imm1-main-fmmeyteyrpye2wc8yjfguf.streamlit.app/"
     },
     {
         "name": "Proyecto Q75",
         "category": "Otros proyectos",
-        "description": "Aplicación académica disponible en Streamlit.",
+        "description": "Proyecto académico desplegado en Streamlit.",
         "url": "https://q75peszknjzqscgceqithx.streamlit.app/"
     }
-
 ]
 
 
-# --------------------------------------------------
+# ==================================================
 # ENCABEZADO
-# --------------------------------------------------
+# ==================================================
 
-st.markdown("""
-<div class="header-box">
+st.markdown(
+    '<div class="header-label">PORTAFOLIO ACADÉMICO</div>',
+    unsafe_allow_html=True
+)
 
-    <div class="header-label">
-        COLECCIÓN DE PROYECTOS ACADÉMICOS
-    </div>
+st.title("Aplicaciones y proyectos tecnológicos")
 
-    <h1>Portafolio de Aplicaciones Tecnológicas</h1>
-
-    <p>
-        Espacio dedicado a recopilar y presentar diferentes proyectos
-        académicos relacionados con Machine Learning, inteligencia
-        artificial, visión artificial y desarrollo de software.
-        Cada sección contiene aplicaciones y ejercicios prácticos
-        desarrollados durante el proceso de aprendizaje.
+st.markdown(
+    """
+    <p class="header-description">
+        Recopilación de proyectos y aplicaciones prácticas desarrolladas
+        en diferentes áreas de la tecnología, incluyendo Machine Learning,
+        inteligencia artificial, visión artificial y desarrollo de software.
     </p>
+    """,
+    unsafe_allow_html=True
+)
 
-</div>
-""", unsafe_allow_html=True)
+st.divider()
 
 
-# --------------------------------------------------
-# ESTADÍSTICAS
-# --------------------------------------------------
+# ==================================================
+# BUSCADOR Y FILTROS
+# ==================================================
+
+st.subheader("Catálogo de proyectos")
+
+st.caption(
+    "Consulta las aplicaciones disponibles y accede a cada proyecto."
+)
 
 categories = [
+    "Todas",
     "Machine Learning",
     "Visión Artificial",
     "Inteligencia Artificial",
@@ -349,75 +305,33 @@ categories = [
     "Otros proyectos"
 ]
 
-stat_cols = st.columns(3)
+col_search, col_category = st.columns([2, 1])
 
-stats = [
-    (len(projects), "Proyectos registrados"),
-    (len(categories), "Áreas de trabajo"),
-    (len(set(p["url"] for p in projects)), "Aplicaciones diferentes")
-]
-
-for col, (number, label) in zip(stat_cols, stats):
-
-    with col:
-
-        st.markdown(f"""
-        <div class="stats-box">
-            <div class="stats-number">{number}</div>
-            <div class="stats-label">{label}</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-
-st.markdown("<br>", unsafe_allow_html=True)
-
-
-# --------------------------------------------------
-# CATÁLOGO DE PROYECTOS
-# --------------------------------------------------
-
-st.markdown(
-    '<div class="section-heading">Catálogo de proyectos</div>',
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    '<div class="section-subtitle">'
-    'Consulta las aplicaciones disponibles y accede a cada proyecto.'
-    '</div>',
-    unsafe_allow_html=True
-)
-
-
-# BUSCADOR Y FILTROS
-
-col1, col2 = st.columns([2, 1])
-
-with col1:
-
+with col_search:
     search = st.text_input(
         "Buscar",
         placeholder="Buscar por nombre o descripción...",
-        label_visibility="visible"
+        key="project_search"
     )
 
-with col2:
-
+with col_category:
     selected_category = st.selectbox(
         "Categoría",
-        ["Todas"] + categories
+        categories
     )
 
 
-# FILTRAR PROYECTOS
+# ==================================================
+# FILTRADO
+# ==================================================
 
 filtered_projects = []
 
 for project in projects:
 
     matches_search = (
-        search.lower() in project["name"].lower()
-        or search.lower() in project["description"].lower()
+        search.strip().lower() in project["name"].lower()
+        or search.strip().lower() in project["description"].lower()
     )
 
     matches_category = (
@@ -429,56 +343,57 @@ for project in projects:
         filtered_projects.append(project)
 
 
-st.markdown(
-    f"**{len(filtered_projects)} proyectos encontrados**"
-)
+st.write(f"**{len(filtered_projects)} proyectos encontrados**")
 
-st.markdown("<br>", unsafe_allow_html=True)
+st.write("")
 
 
-# MOSTRAR TARJETAS
+# ==================================================
+# TARJETAS DE PROYECTOS
+# ==================================================
 
 if filtered_projects:
 
-    cols = st.columns(3)
+    columns = st.columns(3, gap="medium")
 
     for index, project in enumerate(filtered_projects):
 
-        with cols[index % 3]:
+        with columns[index % 3]:
 
-            st.markdown(f"""
-            <div class="project-card">
+            with st.container(border=True):
 
-                <span class="category-tag">
-                    {project["category"]}
-                </span>
+                st.markdown(
+                    f'<div class="category-label">{project["category"]}</div>',
+                    unsafe_allow_html=True
+                )
 
-                <h3>{project["name"]}</h3>
+                st.subheader(project["name"])
 
-                <p>{project["description"]}</p>
+                st.markdown(
+                    f'<div class="project-description">{project["description"]}</div>',
+                    unsafe_allow_html=True
+                )
 
-                <a class="project-link"
-                   href="{project["url"]}"
-                   target="_blank">
-                   Abrir aplicación ↗
-                </a>
-
-            </div>
-            """, unsafe_allow_html=True)
+                st.link_button(
+                    "Abrir aplicación ↗",
+                    project["url"],
+                    use_container_width=True
+                )
 
 else:
 
-    st.info("No se encontraron proyectos con esos criterios.")
+    st.info(
+        "No se encontraron proyectos. "
+        "Intenta con otro nombre o selecciona otra categoría."
+    )
 
 
-# --------------------------------------------------
+# ==================================================
 # PIE DE PÁGINA
-# --------------------------------------------------
+# ==================================================
 
-st.markdown("""
-<div class="footer">
-    Portafolio académico de aplicaciones tecnológicas
-    <br>
-    Desarrollado con Python y Streamlit
-</div>
-""", unsafe_allow_html=True)
+st.divider()
+
+st.caption(
+    "Portafolio académico | Aplicaciones desarrolladas con Python y Streamlit"
+)
